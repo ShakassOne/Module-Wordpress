@@ -20,5 +20,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /www/wp-content/plugins/winshirt/
           local-dir: ./winshirt/
-Ajout du déploiement automatique FTP
-
