@@ -1,0 +1,2 @@
+<?php
+// Nettoyage si besoin
