@@ -1,0 +1,24 @@
+name: 🚀 Deploy WinShirt Plugin to FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📂 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🚀 FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: home408430562.1and1-data.host
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /www/wp-content/plugins/winshirt/
+          local-dir: ./winshirt/
+Ajout du déploiement automatique FTP
+
