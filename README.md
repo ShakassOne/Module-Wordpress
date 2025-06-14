@@ -1,1 +1,1 @@
-# Module-Wordpress V1.1
+# Module-Wordpress V1
