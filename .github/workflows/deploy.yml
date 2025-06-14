@@ -17,4 +17,3 @@ jobs:
     password: ${{ secrets.FTP_PASSWORD }}
     server-dir: /Winshirt/wp-content/plugins/winshirt/
     local-dir: ./
-
