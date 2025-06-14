@@ -1,0 +1,2 @@
+<?php
+// CPT Loteries ici
