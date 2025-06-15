@@ -39,4 +39,3 @@ function winshirt_render_dashboard() {
     echo '<p>Bienvenue dans le plugin de personnalisation produit avec loterie. L’interface arrive bientôt !</p>';
     echo '</div>';
 }
-
