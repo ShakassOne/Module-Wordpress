@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: sftp
-          local-dir: ./winshirt/
-          server-dir: /Winshirt/wp-content/plugins/winshirt/
+          local-dir: ./winshirt
+          server-dir: Winshirt/wp-content/plugins/winshirt
           log-level: verbose
