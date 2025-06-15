@@ -28,14 +28,14 @@ function winshirt_register_admin_menu() {
         25
     );
 }
-add_action( 'admin_menu', 'winshirt_register_admin_menu' );
+add_action('admin_menu', 'winshirt_register_admin_menu');
 
 /**
  * Affiche la page de tableau de bord temporaire.
  */
 function winshirt_render_dashboard() {
     echo '<div class="wrap">';
-    echo '<h1>🎨 Tableau de bord WinShirt</h1>';
+    echo '<h1>Tableau de bord WinShirt</h1>';
     echo '<p>Bienvenue dans le plugin de personnalisation produit avec loterie. L’interface arrive bientôt !</p>';
     echo '</div>';
 }
