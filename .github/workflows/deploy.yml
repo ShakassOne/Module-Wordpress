@@ -31,6 +31,6 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
           source: "winshirt/**"
-          target: "/Winshirt/wp-content/plugins/winshirt/"
+          target: "/Winshirt/wp-content/plugins/winshirt"
           strip_components: 1
           overwrite: true
