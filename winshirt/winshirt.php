@@ -1,41 +1,23 @@
 <?php
 /**
- * Plugin Name: WinShirt – Custom T-shirt & Lottery
- * Description: Personnalisation de T-shirt avec loteries intégrées pour WooCommerce.
- * Version: 1.0.0
- * Author: Alan / Shakass
+ * Plugin Name: WinShirt
+ * Description: Personnalisation textile et loterie.
+ * Version: 0.1.0
+ * Author: Shakass
  */
 
-defined('ABSPATH') || exit;
-
-require_once plugin_dir_path(__FILE__) . 'includes/custom-post-types.php';
-require_once plugin_dir_path(__FILE__) . 'includes/api-routes.php';
-require_once plugin_dir_path(__FILE__) . 'includes/personalization-functions.php';
-require_once plugin_dir_path(__FILE__) . 'includes/stripe-integration.php';
-require_once plugin_dir_path(__FILE__) . 'includes/admin-pages.php';
-
-/**
- * Ajoute le menu WinShirt dans l'admin WordPress.
- */
-function winshirt_register_admin_menu() {
-    add_menu_page(
-        'WinShirt',
-        'WinShirt',
-        'manage_options',
-        'winshirt-dashboard',
-        'winshirt_render_dashboard',
-        'dashicons-tshirt',
-        25
-    );
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
-add_action('admin_menu', 'winshirt_register_admin_menu');
 
-/**
- * Affiche la page de tableau de bord temporaire.
- */
-function winshirt_render_dashboard() {
-    echo '<div class="wrap">';
-    echo '<h1>Tableau de bord WinShirt</h1>';
-    echo '<p>Bienvenue dans le plugin de personnalisation produit avec loterie. L’interface arrive bientôt !</p>';
-    echo '</div>';
+// Plugin path and URL constants for easy includes and assets.
+if ( ! defined( 'WINSHIRT_PATH' ) ) {
+    define( 'WINSHIRT_PATH', plugin_dir_path( __FILE__ ) );
 }
+if ( ! defined( 'WINSHIRT_URL' ) ) {
+    define( 'WINSHIRT_URL', plugin_dir_url( __FILE__ ) );
+}
+
+// Include core plugin files.
+require_once WINSHIRT_PATH . 'includes/admin-menu.php';
+
