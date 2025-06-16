@@ -1,2 +1,0 @@
-<?php
-// Paiement Stripe ici

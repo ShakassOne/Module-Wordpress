@@ -1,2 +1,0 @@
-<?php
-// Pages admin ici
