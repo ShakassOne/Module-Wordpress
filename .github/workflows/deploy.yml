@@ -1,4 +1,4 @@
-name: Deploy WinShirt Plugin via SFTP
+name: Deploy WinShirt Plugin
 
 on:
   push:
@@ -6,19 +6,31 @@ on:
       - main
 
 jobs:
-  sftp-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload WinShirt via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Clean remote plugin directory
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          server: home408430562.1and1-data.host
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
-          local-dir: ./winshirt
-          server-dir: Winshirt/wp-content/plugins/winshirt/winshirt
-          log-level: verbose
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          script: |
+            rm -rf /Winshirt/wp-content/plugins/winshirt/*
+            mkdir -p /Winshirt/wp-content/plugins/winshirt
+
+      - name: Upload plugin via SFTP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          source: "winshirt/**"
+          target: "/Winshirt/wp-content/plugins/winshirt/"
+          strip_components: 1
+          overwrite: true
