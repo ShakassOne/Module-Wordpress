@@ -20,4 +20,5 @@ if ( ! defined( 'WINSHIRT_URL' ) ) {
 
 // Include core plugin files.
 require_once WINSHIRT_PATH . 'includes/admin-menu.php';
+require_once WINSHIRT_PATH . 'includes/mockup-generator.php';
 
